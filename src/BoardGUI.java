@@ -135,6 +135,40 @@ public class BoardGUI implements ActionListener, KeyListener {
     }
 
 
+
+    public void swapRight(int r, int c){
+        label[r][c].setIcon(new ImageIcon(""));
+        String filename = "pics/" + board[r][c] + ".png";
+        label[r+1][c].setIcon(new ImageIcon(filename));
+        int temp = board[r][c];
+        board[r][c] = board[r+1][c];
+        board[r+1][c] = temp;
+    }
+    public void swapLeft(int r, int c){
+        label[r][c].setIcon(new ImageIcon(""));
+        String filename = "pics/" + board[r][c] + ".png";
+        label[r-1][c].setIcon(new ImageIcon(filename));
+        int temp = board[r][c];
+        board[r][c] = board[r-1][c];
+        board[r-1][c] = temp;
+    }
+    public void swapUp(int r, int c){
+        label[r][c].setIcon(new ImageIcon(""));
+        String filename = "pics/" + board[r][c] + ".png";
+        label[r][c+1].setIcon(new ImageIcon(filename));
+        int temp = board[r][c];
+        board[r][c] = board[r][c+1];
+        board[r][c+1] = temp;
+    }
+    public void swapDown(int r, int c){
+        label[r][c].setIcon(new ImageIcon(""));
+        String filename = "pics/" + board[r][c] + ".png";
+        label[r][c-1].setIcon(new ImageIcon(filename));
+        int temp = board[r][c];
+        board[r][c] = board[r][c-1];
+        board[r][c- 1] = temp;
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         String ae = e.getActionCommand().toString();
@@ -144,37 +178,16 @@ public class BoardGUI implements ActionListener, KeyListener {
         if (board[r][c] != -1){
             //int val = board[r][c];
             if (r+1 < rows && board[r+1][c] == -1){
-                label[r][c].setIcon(new ImageIcon(""));
-                String filename = "pics/" + board[r][c] + ".png";
-                label[r+1][c].setIcon(new ImageIcon(filename));
-                int temp = board[r][c];
-                board[r][c] = board[r+1][c];
-                board[r+1][c] = temp;
-
+                swapRight( r, c);
             }
             else if(r-1 >= 0 && board[r-1][c] == -1){
-                label[r][c].setIcon(new ImageIcon(""));
-                String filename = "pics/" + board[r][c] + ".png";
-                label[r-1][c].setIcon(new ImageIcon(filename));
-                int temp = board[r][c];
-                board[r][c] = board[r-1][c];
-                board[r-1][c] = temp;
+                swapLeft( r, c);
             }
             else if(c+1<cols&& board[r][c+1] == -1){
-                label[r][c].setIcon(new ImageIcon(""));
-                String filename = "pics/" + board[r][c] + ".png";
-                label[r][c+1].setIcon(new ImageIcon(filename));
-                int temp = board[r][c];
-                board[r][c] = board[r][c+1];
-                board[r][c+1] = temp;
+                swapUp( r, c);
             }
             else if(c-1>=0&& board[r][c-1] == -1){
-                label[r][c].setIcon(new ImageIcon(""));
-                String filename = "pics/" + board[r][c] + ".png";
-                label[r][c-1].setIcon(new ImageIcon(filename));
-                int temp = board[r][c];
-                board[r][c] = board[r][c-1];
-                board[r][c- 1] = temp;
+                swapDown( r, c);
             }
             this.updatePanel();
         }
