@@ -39,38 +39,7 @@ public class Logic {
         gui.board[r][c- 1] = temp;
     }
 
-    public void swapNotControlUp(int blank_r, int blank_c){
-        gui.label[blank_r+1][blank_c].setIcon(new ImageIcon(""));
-        String filename = "pics/" + gui.board[blank_r+1][blank_c] + ".png";
-        gui.label[blank_r][blank_c].setIcon(new ImageIcon(filename));
-        int temp = gui.board[blank_r][blank_c];
-        gui.board[blank_r][blank_c] = gui.board[blank_r+1][blank_c];
-        gui.board[blank_r+1][blank_c] = temp;
-    }
-    public void swapNotControlDown(int blank_r, int blank_c){
-        gui.label[blank_r-1][blank_c].setIcon(new ImageIcon(""));
-        String filename = "pics/" + gui.board[blank_r-1][blank_c] + ".png";
-        gui.label[blank_r][blank_c].setIcon(new ImageIcon(filename));
-        int temp = gui.board[blank_r][blank_c];
-        gui.board[blank_r][blank_c] = gui.board[blank_r - 1][blank_c];
-        gui.board[blank_r - 1][blank_c] = temp;
-    }
-    public void swapNotControlLeft(int blank_r, int blank_c){
-        gui.label[blank_r][blank_c+1].setIcon(new ImageIcon(""));
-        String filename = "pics/" + gui.board[blank_r][blank_c+1] + ".png";
-        gui.label[blank_r][blank_c].setIcon(new ImageIcon(filename));
-        int temp = gui.board[blank_r][blank_c];
-        gui.board[blank_r][blank_c] = gui.board[blank_r][blank_c+1];
-        gui.board[blank_r][blank_c+1] = temp;
-    }
-    public void swapNotControlRight(int blank_r, int blank_c){
-        gui.label[blank_r][blank_c-1].setIcon(new ImageIcon(""));
-        String filename = "pics/" + gui.board[blank_r][blank_c-1] + ".png";
-        gui.label[blank_r][blank_c].setIcon(new ImageIcon(filename));
-        int temp = gui.board[blank_r][blank_c];
-        gui.board[blank_r][blank_c] = gui.board[blank_r][blank_c-1];
-        gui.board[blank_r][blank_c-1] = temp;
-    }
+
 
     public void swapControlUp(int blank_r, int blank_c){
         gui.label[blank_r+1][blank_c].setIcon(new ImageIcon(""));
